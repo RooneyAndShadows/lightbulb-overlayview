@@ -10,11 +10,10 @@ buildscript {
                 android_annotations: "1.2.0",
                 android_appcompat  : "1.3.1",
                 material           : "1.4.0",
-                lightbulb_commons  : "1.0.0"
+                lightbulb_commons  : "1.0.2"
 
         ]
         environment = [
-                "local_maven_dir": "D:\\ProgramData\\MavenRepo",
                 "group_id"       : "com.rands.lightbulb"
         ]
     }
