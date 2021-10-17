@@ -1,4 +1,4 @@
-package com.rands.lightbulb.overlayview;
+package com.github.RooneyAndShadows.lightbulb.overlayview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,7 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.rands.lightbulb.commons.utils.ResourceUtils;
+import com.github.RooneyAndShadows.lightbulb.commons.utils.ResourceUtils;
+import com.rands.lightbulb.overlayview.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

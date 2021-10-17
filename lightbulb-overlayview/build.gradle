@@ -7,7 +7,7 @@ android {
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0.1"
+        versionName "1.0.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -38,6 +38,9 @@ task sourceJar(type: Jar) {
 
 afterEvaluate {
     publishing {
+        repositories {
+            mavenLocal()
+        }
         publications {
             release(MavenPublication) {
                 from components.release
@@ -53,6 +56,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "androidx.appcompat:appcompat:$versions.android_appcompat"
     implementation "androidx.annotation:annotation:$versions.android_annotations"
-    implementation "com.github.RooneyAndShadows:lightbulb-commons:$versions.lightbulb_commons"
+    implementation "com.github.RooneyAndShadows:java-commons:$versions.java.commons"
+    implementation "com.github.RooneyAndShadows:lightbulb-commons:$versions.lightbulb.commons"
     api "com.google.android.material:material:$versions.material"
 }

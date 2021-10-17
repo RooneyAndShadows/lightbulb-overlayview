@@ -10,11 +10,16 @@ buildscript {
                 android_annotations: "1.2.0",
                 android_appcompat  : "1.3.1",
                 material           : "1.4.0",
-                lightbulb_commons  : "1.0.2"
+                lightbulb          : [
+                        commons: "1.0.5"
+                ],
+                java               : [
+                        commons: "1.0.2"
+                ]
 
         ]
         environment = [
-                "group_id"       : "com.rands.lightbulb"
+                "group_id": "com.github.RooneyAndShadows"
         ]
     }
     repositories {
