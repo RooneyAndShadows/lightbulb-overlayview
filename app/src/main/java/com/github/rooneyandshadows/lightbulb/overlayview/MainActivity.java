@@ -1,4 +1,4 @@
-package com.rands.lightbulb.overlayview;
+package com.github.rooneyandshadows.lightbulb.overlayview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
