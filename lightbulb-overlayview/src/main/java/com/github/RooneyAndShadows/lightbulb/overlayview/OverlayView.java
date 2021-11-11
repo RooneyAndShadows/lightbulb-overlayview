@@ -141,19 +141,27 @@ public class OverlayView extends RelativeLayout {
     }
 
     public void show() {
-        cancelDelayedShowing();
-        showing = true;
-        setVisibility(VISIBLE);
-        if (overlayListeners != null)
-            overlayListeners.onShow(layoutView);
+        if (showing || isWaitingDelayedShow)
+            return;
+        post(() -> {
+            cancelDelayedShowing();
+            showing = true;
+            setVisibility(VISIBLE);
+            if (overlayListeners != null)
+                overlayListeners.onShow(layoutView);
+        });
     }
 
     public void hide() {
-        cancelDelayedShowing();
-        showing = false;
-        setVisibility(GONE);
-        if (overlayListeners != null)
-            overlayListeners.onHide(layoutView);
+        if (!showing && !isWaitingDelayedShow)
+            return;
+        post(() -> {
+            cancelDelayedShowing();
+            showing = false;
+            setVisibility(GONE);
+            if (overlayListeners != null)
+                overlayListeners.onHide(layoutView);
+        });
     }
 
     public void cancelDelayedShowing() {
