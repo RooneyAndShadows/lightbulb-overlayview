@@ -122,7 +122,7 @@ public class OverlayView extends RelativeLayout {
     public void onRestoreInstanceState(Parcelable state) {
         SavedState savedState = (SavedState) state;
         super.onRestoreInstanceState(savedState.getSuperState());
-        this.showing = savedState.showing;
+        boolean showing = savedState.showing;
         this.layoutId = savedState.layoutId;
         this.colorBackground = savedState.backgroundColor;
         this.colorBackgroundAlpha = savedState.backgroundColorAlpha;
