@@ -28,6 +28,10 @@ public class OverlayView extends RelativeLayout {
     private boolean isWaitingDelayedShow = false;
     private final Runnable showRunnable = this::show;
 
+    public OverlayView(Context context) {
+        this(context, null);
+    }
+
     public OverlayView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         readAttributes(context, attrs);
