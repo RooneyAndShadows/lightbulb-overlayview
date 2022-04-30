@@ -145,7 +145,7 @@ public class OverlayView extends RelativeLayout {
     }
 
     public void show() {
-        if (showing)
+        if (showing || isWaitingDelayedShow)
             return;
         cancelDelayedShowing();
         showing = true;
@@ -155,7 +155,7 @@ public class OverlayView extends RelativeLayout {
     }
 
     public void hide() {
-        if (!showing)
+        if (!showing && !isWaitingDelayedShow)
             return;
         cancelDelayedShowing();
         showing = false;
