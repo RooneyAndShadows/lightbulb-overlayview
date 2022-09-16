@@ -159,7 +159,7 @@ public class OverlayView extends RelativeLayout {
             return;
         cancelDelayedShowing();
         showing = false;
-        setVisibility(INVISIBLE);
+        setVisibility(GONE);
         if (overlayListeners != null)
             overlayListeners.onHide(layoutView);
     }
@@ -192,7 +192,7 @@ public class OverlayView extends RelativeLayout {
         if (colorBackground != 0)
             setBackgroundColor(colorBackground);
         getBackground().setAlpha(colorBackgroundAlpha);
-        setVisibility(showing ? VISIBLE : INVISIBLE);
+        setVisibility(showing ? VISIBLE : GONE);
         if (layoutId != null)
             setLayout(layoutId);
     }
