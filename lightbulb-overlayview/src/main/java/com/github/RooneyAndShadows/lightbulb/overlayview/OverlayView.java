@@ -26,7 +26,7 @@ public class OverlayView extends RelativeLayout {
     private boolean showing = false;
     private OverlayListeners overlayListeners;
     private boolean isWaitingDelayedShow = false;
-    private final Runnable showRunnable = this::show;
+    private final Runnable showRunnable = this::showDelayed;
 
     public OverlayView(Context context) {
         this(context, null);
@@ -144,6 +144,7 @@ public class OverlayView extends RelativeLayout {
         postDelayed(showRunnable, delay);
     }
 
+
     public void show() {
         if (showing || isWaitingDelayedShow)
             return;
@@ -167,6 +168,14 @@ public class OverlayView extends RelativeLayout {
     public void cancelDelayedShowing() {
         removeCallbacks(showRunnable);
         isWaitingDelayedShow = false;
+    }
+
+    private void showDelayed() {
+        isWaitingDelayedShow = false;
+        showing = true;
+        setVisibility(VISIBLE);
+        if (overlayListeners != null)
+            overlayListeners.onShow(layoutView);
     }
 
     protected void readAttributes(Context context, AttributeSet attrs) {
